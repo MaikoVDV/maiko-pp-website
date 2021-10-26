@@ -1,4 +1,7 @@
 .titlebar {
-    margin: 1rem;
+    padding: 1rem;
     font-size: large;
+    border-bottom: 2px solid black;
+    top: 0px;
+    margin: 0px;
 }

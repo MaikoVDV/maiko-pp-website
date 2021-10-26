@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import store from './store.js';
 
 import Titlebar from './components/Titlebar/Titlebar';
-import CardList from './components/Cards/CardList';
+import GroupContentArea from './components/Misc/GroupContentArea';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </div>
         <div id="group-viewer">
           <Titlebar titleContent="My group" />
-          <CardList />
+          <GroupContentArea />
         </div>
       </div>
       </Provider>
@@ -25,4 +25,4 @@ function App() {
   );
 }
 
-export default App;
+export default App

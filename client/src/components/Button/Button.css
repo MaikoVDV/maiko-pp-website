@@ -1,0 +1,14 @@
+.default-button {
+    float: right;
+    margin: 1rem 1rem 0px auto;
+    height:fit-content;
+    padding: 0.5rem 1rem;
+    flex-shrink: 0;
+}
+.default-button p {
+    margin: 0px;
+}
+
+.default-button.confirm {
+
+}
