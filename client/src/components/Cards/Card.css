@@ -1,3 +1,23 @@
 .card {
-    background: red;
+    background: var(--card-secondary-red);
+    border: var(--border-width-card) solid var(--card-primary-red);
+    border-radius: var(--border-radius-card);
+    color: white;
+    padding: 5px;
+    margin: 15px;
+    width: 10rem;
+    min-height: 150px;
+    max-height: 300px;
+}
+.card-title {
+    font-size: var(--primary-content-font-size);
+    margin: 0px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.card-desc {
+    font-size: var(--secondary-content-font-size);
+    margin: 0px;
 }

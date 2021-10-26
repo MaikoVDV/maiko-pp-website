@@ -21,8 +21,8 @@ class CardList extends Component {
         console.log(cards)
         return (
             <div id="card-list">
-                {cards.map(({cardTitle}) => (
-                    <Card title={cardTitle}/>
+                {cards.map((card) => (
+                    <Card cardData={card}/>
                 ))}
             </div>
         )

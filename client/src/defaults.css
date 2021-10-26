@@ -1,0 +1,16 @@
+:root {
+    /* FONTS */
+    --title-font-size: 30px;
+    --primary-content-font-size: 20px;
+    --secondary-content-font-size: 15px;
+
+    /* COLORS */
+    --card-primary-red: #c10f0f;
+    --card-secondary-red: #d32a21;
+    --card-primary-blue: #0a058e;
+    --card-secondary-blue: #26229b;
+
+    /* MISCELLANEOUS */
+    --border-radius-card: 15px;
+    --border-width-card: 5px;
+}

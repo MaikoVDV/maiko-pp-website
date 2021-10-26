@@ -3,12 +3,12 @@ import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING } from "../actions/type
 const initState = {
     cards: [
         {
-            cardTitle: "What's the homework for Friday?",
-            cardDescription: "I was abscent yesterday. What problems should we solve for Friday?",
-            cardCreationDate: "10-6-21",
+            title: "What's the homework for Friday?",
+            desc: "I was abscent yesterday. What problems should we solve for Friday?",
+            date: "10-6-21",
             cardAuthor: "14938679572",
             isPinned: false,
-            cardFileAttachments: [
+            attachments: [
                 {
                     fileName: "cool example file",
                     downloadLink: "https://www.example.com"
