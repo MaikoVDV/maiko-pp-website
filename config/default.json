@@ -1,0 +1,4 @@
+{
+    "mongoURI": "mongodb+srv://admin:SuperSecureAdminPassword@main-db.vthzv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+    "jwtSecret": "school_tool_secret"
+}

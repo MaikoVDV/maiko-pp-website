@@ -11,8 +11,7 @@ import './CardList.css'
 
 class CardList extends Component {
     componentDidMount() {
-        // BUG: Data not being gathered correctly. Updating after initialization returns null
-        //this.props.getCards()
+        this.props.getCards()
     }
 
     render() {

@@ -1,33 +1,7 @@
 import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING } from "../actions/types.js";
 
 const initState = {
-    cards: [
-        {
-            title: "What's the homework for Friday?",
-            desc: "I was abscent yesterday. What problems should we solve for Friday?",
-            date: "10-6-21",
-            cardAuthor: "14938679572",
-            isPinned: false,
-            attachments: [
-                {
-                    fileName: "cool example file",
-                    downloadLink: "https://www.example.com"
-                }
-            ],
-            comments: [
-                {
-                    commentAuthor: "2073687247436",
-                    commentText: "We have to do problems 5-13 on p.59",
-                    replies: [
-                        {
-                            replyAuthor: "320974702975",
-                            replyText: "I thought we only had to do 5-10?"
-                        }
-                    ]
-                }
-            ]
-        }
-    ],
+    cards: [],
     loading: false
 };
 
