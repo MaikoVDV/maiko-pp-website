@@ -6,6 +6,7 @@ import store from './store.js';
 
 import Titlebar from './components/Titlebar/Titlebar';
 import GroupContentArea from './components/Misc/GroupContentArea';
+import GroupList from './components/Groups/GroupList'
 
 function App() {
   return (
@@ -14,10 +15,11 @@ function App() {
       <div id="main-flex-container">
         <div id="group-list">
           <Titlebar titleContent="Groups" />
+          <GroupList />
         </div>
         <div id="group-viewer">
           <Titlebar titleContent="My group" />
-          <GroupContentArea />
+          <GroupContentArea cards={store.getState().group.groups.cards}/>
         </div>
       </div>
       </Provider>

@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const path = require('path');
 
 const cards = require('./routes/api/cards');
+const groups = require('./routes/api/groups');
 
 const config = require('config')
 
@@ -21,6 +22,7 @@ mongoose.connect(db)
 
 // Use routes
 app.use('/api/cards', cards);
+app.use('/api/groups', groups);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

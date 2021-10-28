@@ -4,22 +4,21 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 // Components & Other scripts
 import { getCards, deleteCard } from '../../actions/cardActions.js';
+import { getGroups, test } from '../../actions/groupActions.js';
 import Card from './Card';
 
 // Stylesheets
 import './CardList.css'
 
 class CardList extends Component {
-    componentDidMount() {
-        this.props.getCards()
-    }
-
     removeCard = (id) => {
         this.props.deleteCard(id)
     }
 
     render() {
-        const { cards } = this.props.card;
+        const groups = this.props.groups;
+        const cards = groups[0].cards;
+        console.log(groups)
 
         return (
             <div id="card-list">
@@ -41,7 +40,7 @@ CardList.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    card: state.card
+    groups: state.group.groups
 });
 
-export default connect(mapStateToProps, { getCards, deleteCard })(CardList);
+export default connect(mapStateToProps, { test })(CardList);

@@ -1,20 +1,26 @@
 import axios from 'axios'
-import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING } from "./types.js";
+import { GET_GROUPS, ADD_GROUP, DELETE_GROUP, GROUPS_LOADING } from "./types.js";
 
-export const getCards = () => {
-    return {
-        type: GET_CARDS
-    }
-    /*dispatch(setCardsLoading());
+export const getGroups = () => dispatch => {
+    /*return {
+        type: GET_GROUPS
+    }*/
+    dispatch(setGroupsLoading());
     axios
-        .get('/api/cards')
+        .get('/api/groups')
         .then(res => 
             dispatch({
-                type: GET_CARDS,
+                type: GET_GROUPS,
                 payload: res.data
             })
-        )*/
+        )
 }
+export const test = () => {
+    return {
+        type: GET_GROUPS
+    }
+}
+/*
 export const addCard = card => dispatch => {
     axios
         .post('/api/cards', card)
@@ -32,9 +38,9 @@ export const deleteCard = id => dispatch => {
             type: DELETE_CARD,
             payload: id
         }))
-}
-export const setCardsLoading = () => {
+}*/
+export const setGroupsLoading = () => {
     return {
-        type: CARDS_LOADING
+        type: GROUPS_LOADING
     }
 }

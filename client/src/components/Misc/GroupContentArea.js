@@ -18,7 +18,7 @@ class GroupContentArea extends Component {
     render() {
         return(
             <div style={{display: "flex"}}>
-                <CardList />
+                <CardList cards={this.props.cards} />
                 <Button buttonType="confirm" buttonTrigger={this.test}/>
             </div>
         )
