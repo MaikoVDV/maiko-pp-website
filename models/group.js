@@ -1,6 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const CardSchema = new Schema({
+    title: {
+        type: String,
+        required: true
+    },
+    desc: String
+})
 
 const groupSchema = new Schema({
     name: {
@@ -20,9 +27,10 @@ const groupSchema = new Schema({
         default: []
     },
     cards: {
-        type: Array,
-        required: true
+        type: [CardSchema],
+        default: []
     }
 })
+
 
 module.exports = Group = mongoose.model('group', groupSchema)

@@ -2,8 +2,9 @@ const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
 
-const cards = require('./routes/api/cards');
+const groupListItems = require('./routes/api/groupListItems');
 const groups = require('./routes/api/groups');
+const getGroupById = require('./routes/api/getGroupById')
 
 const config = require('config')
 
@@ -21,8 +22,9 @@ mongoose.connect(db)
     .catch(err => console.log(err));
 
 // Use routes
-app.use('/api/cards', cards);
+app.use('/api/groupListItems', groupListItems);
 app.use('/api/groups', groups);
+app.use('/api/getGroupById', getGroupById);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

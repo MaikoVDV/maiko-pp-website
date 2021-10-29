@@ -1,10 +1,7 @@
 import axios from 'axios'
-import { GET_GROUPS, ADD_GROUP, DELETE_GROUP, GROUPS_LOADING } from "./types.js";
+import { GET_GROUPS, GET_GROUPLIST, GET_GROUP_BY_ID, ADD_GROUP, DELETE_GROUP, GROUPS_LOADING } from "./types.js";
 
 export const getGroups = () => dispatch => {
-    /*return {
-        type: GET_GROUPS
-    }*/
     dispatch(setGroupsLoading());
     axios
         .get('/api/groups')
@@ -15,32 +12,53 @@ export const getGroups = () => dispatch => {
             })
         )
 }
-export const test = () => {
-    return {
-        type: GET_GROUPS
-    }
-}
-/*
-export const addCard = card => dispatch => {
+export const getGroupById = id => dispatch => {
     axios
-        .post('/api/cards', card)
+        .post('/api/getGroupById', { id: id } )
         .then(res => 
             dispatch({
-                type: ADD_CARD,
+                type: GET_GROUP_BY_ID,
                 payload: res.data
             })
-            )
+        )
 }
-export const deleteCard = id => dispatch => {
+export const getGroupList = () => dispatch => {
+    dispatch(setGroupsLoading());
     axios
-        .delete(`/api/cards/${id}`)
+        .get('/api/groupListItems')
+        .then(res => 
+            dispatch({
+                type: GET_GROUPLIST,
+                payload: res.data
+            })
+        )
+}
+export const addGroup = group => dispatch => {
+    axios
+        .post('/api/groups', group)
+        .then(res => 
+            dispatch({
+                type: ADD_GROUP,
+                payload: res.data
+            })
+        )
+}
+export const deleteGroup = id => dispatch => {
+    axios
+        .delete(`/api/groups/${id}`)
         .then(res => dispatch({
-            type: DELETE_CARD,
+            type: DELETE_GROUP,
             payload: id
         }))
-}*/
+}
 export const setGroupsLoading = () => {
     return {
         type: GROUPS_LOADING
     }
 }
+/*export const changeCurrentGroup = id => {
+    return {
+        type: CHANGE_CURRENT_GROUP,
+        payload: id
+    }
+}*/

@@ -1,15 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-
-const cardSchema = new Schema({
-    title: {
+const groupListItemSchema = new Schema({
+    name: {
         type: String,
         required: true
-    },
-    desc: {
-        type: String,
-        required: false
     },
     date: {
         type: Date,
@@ -17,4 +12,5 @@ const cardSchema = new Schema({
     }
 })
 
-module.exports = Card = mongoose.model('card', cardSchema)
+
+module.exports = GroupListItem = mongoose.model('groupListItem', groupListItemSchema)

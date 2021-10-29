@@ -23,7 +23,9 @@ router.post("/", (req, res) => {
         users: req.body.users
     });
 
-    newGroup.save().then(group => res.json(group))
+    newGroup.save().then(group => {
+        res.json(group)
+    })
 })
 // @route  DELETE api/groups
 // @desc   Delete group

@@ -6,22 +6,24 @@ import store from './store.js';
 
 import Titlebar from './components/Titlebar/Titlebar';
 import GroupContentArea from './components/Misc/GroupContentArea';
-import GroupList from './components/Groups/GroupList'
+import GroupList from './components/Groups/GroupList';
+import TestComp from './components/testComp.js';
 
 function App() {
   return (
     <div className="App">
       <Provider store={store}>
-      <div id="main-flex-container">
-        <div id="group-list">
-          <Titlebar titleContent="Groups" />
-          <GroupList />
+        <div id="main-flex-container">
+          <div id="group-list">
+            <Titlebar titleContent="Groups" />
+            <GroupList />
+          </div>
+          <div id="group-viewer">
+            <Titlebar titleContent="My group" />
+            <GroupContentArea cards={store.getState().group.groups.cards}/>
+          </div>
         </div>
-        <div id="group-viewer">
-          <Titlebar titleContent="My group" />
-          <GroupContentArea cards={store.getState().group.groups.cards}/>
-        </div>
-      </div>
+        <TestComp />
       </Provider>
     </div>
   );
