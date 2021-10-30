@@ -19,19 +19,27 @@ router.post("/", (req, res) => {
     const newGroup = new Group({
         name: req.body.name,
         desc: req.body.desc,
-        cards: req.body.cards,
-        users: req.body.users
+        cardIds: [],
+        userIdss: []
     });
 
     newGroup.save().then(group => {
         res.json(group)
+
+        const newGroupListItem = new GroupListItem({
+            name: req.body.name,
+            groupId: group._id
+        });
+        process.stdout.write(JSON.stringify(newGroupListItem))
+        newGroupListItem.save()
     })
 })
 // @route  DELETE api/groups
 // @desc   Delete group
 // @access Public
-router.delete("/:id", (req, res) => {
-    Group.findById(req.params.id)
+router.delete("/", (req, res) => {
+    // req = { params: {id} }
+    Group.findById(req.body.id)
         .then(group => { group.remove().then(res.json({success: true})) })
         .catch(err => res.status(404).json({success: false}))
 })

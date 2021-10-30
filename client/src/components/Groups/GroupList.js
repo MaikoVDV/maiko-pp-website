@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 // Components & Other scripts
 import Button from '../Button/Button';
 import { getGroups, getGroupById } from '../../actions/groupActions.js';
+import { getCards } from '../../actions/cardActions.js';
 
 
 class GroupList extends Component {
@@ -14,6 +15,7 @@ class GroupList extends Component {
 
     openGroup(group) {
         this.props.getGroupById(group._id)
+        this.props.getCards(group._id)
     }
 
     render() {
@@ -38,7 +40,8 @@ GroupList.propTypes = {
 
 const mapStateToProps = (state) => ({
     group: state.group,
-    getGroupById: state.getGroupById
+    getGroupById: state.getGroupById,
+    getCards: state.getCards
 });
 
-export default connect(mapStateToProps, { getGroups, getGroupById })(GroupList);
+export default connect(mapStateToProps, { getGroups, getGroupById, getCards })(GroupList);
