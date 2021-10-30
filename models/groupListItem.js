@@ -9,6 +9,10 @@ const groupListItemSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
+    },
+    groupId: {
+        type: String,
+        required: true
     }
 })
 

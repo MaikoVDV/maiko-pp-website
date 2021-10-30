@@ -23,7 +23,6 @@ function App() {
             <GroupContentArea cards={store.getState().group.groups.cards}/>
           </div>
         </div>
-        <TestComp />
       </Provider>
     </div>
   );

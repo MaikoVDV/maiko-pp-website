@@ -7,19 +7,20 @@ import Button from '../Button/Button';
 import CardList from '../Cards/CardList';
 
 class GroupContentArea extends Component {
-    test = () => {
+    AddCard = () => {
       const newCard = {
-        title: "test card"
+        title: "Frontend card",
+        desc: "I added this card with the frontend!"
       }
   
-      this.props.addCard(newCard);
+      this.props.addCard(newCard, this.props.currentGroup._id);
     }
 
     render() {
         return(
             <div style={{display: "flex"}}>
                 <CardList cards={this.props.cards} />
-                <Button buttonType="confirm" buttonTrigger={this.test} buttonText="Add card"/>
+                <Button buttonType="confirm" buttonTrigger={this.AddCard} buttonText="Add card"/>
             </div>
         )
     }
@@ -31,6 +32,7 @@ GroupContentArea.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
+    currentGroup: state.group.currentGroup,
     card: state.card
 });
 

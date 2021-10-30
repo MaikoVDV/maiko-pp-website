@@ -4,7 +4,8 @@ const path = require('path');
 
 const groupListItems = require('./routes/api/groupListItems');
 const groups = require('./routes/api/groups');
-const getGroupById = require('./routes/api/getGroupById')
+const getGroupById = require('./routes/api/getGroupById');
+const cards = require('./routes/api/cards');
 
 const config = require('config')
 
@@ -25,6 +26,7 @@ mongoose.connect(db)
 app.use('/api/groupListItems', groupListItems);
 app.use('/api/groups', groups);
 app.use('/api/getGroupById', getGroupById);
+app.use('/api/cards', cards);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

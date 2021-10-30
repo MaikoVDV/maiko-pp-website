@@ -1,37 +1,44 @@
 import axios from 'axios'
 import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING } from "./types.js";
 
-export const getCards = () => {
-    return {
-        type: GET_CARDS
-    }
-    /*dispatch(setCardsLoading());
+export const getCards = groupId => dispatch => {
     axios
-        .get('/api/cards')
+        .get('/api/cards', { params: { groupId: groupId } })
         .then(res => 
             dispatch({
                 type: GET_CARDS,
                 payload: res.data
             })
-        )*/
+        ).catch(err => {
+            console.log("An error occured whilst attempting to get the cards in a group. Here's the error mesage:\n\n" + err)
+        })
 }
-export const addCard = card => dispatch => {
+
+export const addCard = (card, groupId) => dispatch => {
     axios
-        .post('/api/cards', card)
+        .post('/api/cards', { title: card.title, desc: card.desc, groupId: groupId })
         .then(res => 
             dispatch({
                 type: ADD_CARD,
                 payload: res.data
             })
-            )
+            ).catch(err => {
+                console.log("An error has occured whilst attempting to add a card. Here's the error mesage:\n\n" + err)
+            })
 }
-export const deleteCard = id => dispatch => {
+export const deleteCard = (cardId, groupId) => dispatch => {
+    const data = {
+        cardId: cardId,
+        groupId: groupId
+    }
+    dispatch({
+        type: DELETE_CARD,
+        payload: cardId
+    })
     axios
-        .delete(`/api/cards/${id}`)
-        .then(res => dispatch({
-            type: DELETE_CARD,
-            payload: id
-        }))
+        .delete(`/api/cards`, { data }).catch(err => {
+            console.log("An error has occured whilst attempting to remove a card. Here's the error message:\n\n" + err)
+        })
 }
 export const setCardsLoading = () => {
     return {
