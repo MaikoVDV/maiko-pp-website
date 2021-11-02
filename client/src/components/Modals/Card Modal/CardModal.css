@@ -1,0 +1,36 @@
+.card-modal {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    /* width: 20vw;
+    height: 20vw; */
+
+    background: white;
+
+    z-index: 50;
+
+    padding: var(--modal-padding);
+
+    display: flex;
+    flex-wrap: wrap;
+}
+.card-modal input {
+    /* margin: 0px; */
+    flex: 100%;
+}
+.card-modal .modal-title {
+    font-size: var(--modal-title-size);
+    border: 0px;
+}
+.card-modal .modal-content {
+    font-size: var(--modal-content-size);
+    border: 0px;
+}
+input:focus {
+    outline: 0px;
+}
+.card-modal .default-button {
+    position: relative;
+}

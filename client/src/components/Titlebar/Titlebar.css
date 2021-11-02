@@ -1,7 +1,13 @@
 .titlebar {
-    padding: 1rem;
-    font-size: large;
+    font-size: calc(var(--titlebar-height) / 2);
+    font-weight: var(--title-font-weight);
     border-bottom: 2px solid black;
     top: 0px;
     margin: 0px;
+    padding-left: calc(0.25em);
+    height: var(--titlebar-height);
+    line-height: var(--titlebar-height);
+    box-sizing: border-box;
+    z-index: 30;
+    font-family: 'Open Sans', sans-serif;
 }

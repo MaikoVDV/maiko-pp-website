@@ -4,10 +4,9 @@
     border-radius: var(--border-radius-card);
     color: white;
     padding: 5px;
-    margin: 15px;
+    margin: 15px 0px 0px 15px;
     width: 10rem;
-    min-height: 150px;
-    max-height: 300px;
+    height: 150px;
 }
 .card-title {
     font-size: var(--primary-content-font-size);

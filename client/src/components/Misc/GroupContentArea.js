@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 
 import Button from '../Button/Button';
 import CardList from '../Cards/CardList';
+import GroupOptionsBar from '../Cards/GroupOptionsBar';
+import '../../App.css';
 
 class GroupContentArea extends Component {
     AddCard = () => {
@@ -18,9 +20,8 @@ class GroupContentArea extends Component {
 
     render() {
         return(
-            <div style={{display: "flex"}}>
+            <div id="group-content-area">
                 <CardList cards={this.props.cards} />
-                <Button buttonType="confirm" buttonTrigger={this.AddCard} buttonText="Add card"/>
             </div>
         )
     }

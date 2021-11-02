@@ -1,14 +1,61 @@
 .default-button {
+    --button-v-width: calc(100% - var(--list-item-margin) * 2);
     float: right;
-    margin: 1rem 1rem 0px auto;
     height:fit-content;
     padding: 0.5rem 1rem;
     flex-shrink: 0;
+
+    border: solid var(--border-width-button) var(--button-border-neutral);
+    border-radius: var(--border-radius-button);
+    background: transparent;
+
 }
+@keyframes neutral-highlight {
+    from {background-color: transparent;}
+    to {background-color: var(--button-highlight-neutral);}
+}
+@keyframes neutral-highlight-rev {
+    from {background-color: var(--button-highlight-neutral);;}
+    to {background-color: transparent}
+}
+@keyframes confirm-highlight {
+    from {background-color: transparent;}
+    to {background-color: var(--button-highlight-confirm);}
+}
+@keyframes confirm-highlight-rev {
+    from {background-color: var(--button-highlight-confirm);;}
+    to {background-color: transparent}
+}
+.default-button:hover { animation: neutral-highlight 0.1s forwards; }
+.default-button:hover { animation: neutral-highlight 0.1s forwards; }
+.default-button { animation: neutral-highlight-rev 0.1s forwards; }
+.default-button { animation: neutral-highlight-rev 0.1s forwards; }
+.default-button.confirm:hover { animation: confirm-highlight 0.1s forwards; }
+.default-button.confirm { animation: confirm-highlight-rev 0.1s forwards; }
+
 .default-button p {
     margin: 0px;
 }
 
 .default-button.confirm {
+    border-color: var(--button-border-confirm)
+}
+.default-button.list-item-v {
+    --list-item-margin: 1rem;
+    width: var(--button-v-width);
+    margin: var(--list-item-margin);
+    margin-bottom: 0px;
+}
+.default-button.list-item-h {
+    float: left;
+    --list-item-margin: 1rem;
+    height: calc(100% - var(--list-item-margin));
+    margin: auto 1rem;
+}
+.default-button.modal-button {
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
 
+    margin: 1em;
 }

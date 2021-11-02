@@ -1,0 +1,6 @@
+#group-list {
+    height: 100%;
+    border-right: 2px solid black;
+    width: var(--group-list-width);
+    z-index: 30;
+}

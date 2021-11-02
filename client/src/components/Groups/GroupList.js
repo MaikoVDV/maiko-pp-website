@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 import Button from '../Button/Button';
 import { getGroups, getGroupById } from '../../actions/groupActions.js';
 import { getCards } from '../../actions/cardActions.js';
+// Stylesheets
+import './GroupList.css'
 
 
 class GroupList extends Component {
@@ -24,7 +26,7 @@ class GroupList extends Component {
         return(
             <div className="group-list">
                 {groups.map((group) => (
-                    <Button key={group._id} buttonText={group.name} g={group} buttonTrigger={() => {
+                    <Button key={group._id} buttonType="list-item-v" buttonText={group.name} g={group} buttonTrigger={() => {
                         this.openGroup(group)
                     }} />
                 ))}

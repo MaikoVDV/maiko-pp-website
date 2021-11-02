@@ -1,8 +1,19 @@
 :root {
+    /* LAYOUT */
+    --group-list-width: 250px;
+    --titlebar-height: 60px;
+    --group-optionsbar-height: 50px;
+
+    --modal-padding: 10px;
+
     /* FONTS */
     --title-font-size: 30px;
+    --title-font-weight: bold;
     --primary-content-font-size: 20px;
     --secondary-content-font-size: 15px;
+
+    --modal-title-size: 25px;
+    --modal-content-size: 15px;
 
     /* COLORS */
     --card-primary-red: #c10f0f;
@@ -10,7 +21,20 @@
     --card-primary-blue: #0a058e;
     --card-secondary-blue: #26229b;
 
+    --button-border-neutral: #888888;
+    --button-highlight-neutral: #ececec;
+    --button-border-confirm: #4444ff;
+    --button-highlight-confirm: #83a4ff;
+
+    --drop-shadow-color: #aaaaaacc;
+
     /* MISCELLANEOUS */
     --border-radius-card: 15px;
     --border-width-card: 5px;
+
+    --border-width-button: 2px;
+    --border-radius-button: 8px;
+}
+* {
+    font-family: 'Lexend', sans-serif;
 }
