@@ -4,8 +4,7 @@ import {
     GET_GROUPLIST, 
     ADD_GROUP, 
     DELETE_GROUP, 
-    GROUPS_LOADING, 
-    CHANGE_CURRENT_GROUP 
+    GROUPS_LOADING
 } from "../actions/types.js";
 
 const initState = {

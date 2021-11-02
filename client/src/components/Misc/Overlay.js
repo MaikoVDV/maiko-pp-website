@@ -6,7 +6,7 @@ import './Overlay.css';
 class Overlay extends Component {
     render() {
         return (
-            <div id="overlay" style={{ background: this.props.overlayStatus == true? '#000000cc': 'transparent'}} />
+            <div id="overlay" style={{ background: this.props.overlayStatus === true? '#000000cc': 'transparent'}} />
         )
     }
 }

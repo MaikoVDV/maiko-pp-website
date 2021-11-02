@@ -1,11 +1,9 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { addCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
 
-import Button from '../Button/Button';
 import CardList from '../Cards/CardList';
-import GroupOptionsBar from '../Cards/GroupOptionsBar';
 import '../../App.css';
 
 class GroupContentArea extends Component {

@@ -8,8 +8,8 @@ import Titlebar from './components/Titlebar/Titlebar';
 import GroupContentArea from './components/Misc/GroupContentArea';
 import GroupList from './components/Groups/GroupList';
 import GroupOptionsBar from './components/Cards/GroupOptionsBar';
-import CardModal from './components/Modals/Card Modal/CardModal';
-import Overlay from './components/Misc/Overlay';
+// import CardModal from './components/Modals/Card Modal/CardModal';
+// import Overlay from './components/Misc/Overlay';
 
 function App() {
   return (

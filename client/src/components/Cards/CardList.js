@@ -1,11 +1,9 @@
 // Libraries
 import React, { Component } from 'react';
-import store from '../../store'
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 // Components & Other scripts
 import Card from './Card';
-import { getCards } from '../../actions/cardActions'
 
 // Stylesheets
 import './CardList.css'

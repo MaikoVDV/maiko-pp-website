@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 
 // GroupListItem model
-const GroupListItem = require("../../models/GroupListItem");
+const GroupListItem = require("../../models/groupListItem");
 
 // @route  Get api/groupListItems
 // @desc   Get all groupListItems
