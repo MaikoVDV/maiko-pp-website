@@ -3,7 +3,7 @@ const router = express.Router();
 
 // Group model
 const Group = require("../../models/Group");
-const Card = require("../../models/Card");
+const Card = require("../../models/card");
 
 // @route  Get api/cards
 // @desc   Get all groups
