@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 // Components & other scripts
 import { addCard } from '../../actions/cardActions';
-import { changeOverlayStatus } from '../../actions/prefActions';
+import { changeOverlayStatus, changeCardModalStatus } from '../../actions/prefActions';
 import Button from '../Button/Button';
 // Stylesheets
 import './GroupOptionsBar.css';
@@ -18,6 +18,7 @@ class GroupOptionsBar extends Component {
   
       this.props.addCard(newCard, this.props.currentGroup._id);
       this.props.changeOverlayStatus(true)
+      this.props.changeCardModalStatus(true)
     }
 
     render() {
@@ -39,4 +40,4 @@ const mapStateToProps = (state) => ({
     card: state.card
 });
 
-export default connect(mapStateToProps, { addCard, changeOverlayStatus })(GroupOptionsBar);
+export default connect(mapStateToProps, { addCard, changeOverlayStatus, changeCardModalStatus })(GroupOptionsBar);
