@@ -1,5 +1,5 @@
 import axios from 'axios'
-import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING } from "./types.js";
+import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING, CHANGE_CURRENT_GROUP } from "./types.js";
 
 export const getCards = groupId => dispatch => {
     axios
@@ -36,9 +36,7 @@ export const deleteCard = (cardId, groupId) => dispatch => {
         payload: cardId
     })
     axios
-        .delete(`/api/cards`, { data }).catch(err => {
-            console.log("An error has occured whilst attempting to remove a card. Here's the error message:\n\n" + err)
-        })
+        .delete(`/api/cards`, { data })
 }
 export const setCardsLoading = () => {
     return {
