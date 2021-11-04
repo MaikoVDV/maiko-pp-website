@@ -1,8 +1,9 @@
-import { CHANGE_OVERLAY_STATUS, CHANGE_CARDMODAL_STATUS } from "../actions/types.js";
+import { CHANGE_OVERLAY_STATUS, CHANGE_CARDMODAL_STATUS, CHANGE_GROUPMODAL_STATUS } from "../actions/types.js";
 
 const initState = {
     overlayStatus: false,
-    cardModalStatus: false
+    cardModalStatus: false,
+    groupModalStatus: false
 };
 
 export default function(state = initState, action) {
@@ -16,6 +17,11 @@ export default function(state = initState, action) {
             return {
                 ...state,
                 cardModalStatus: action.payload
+            }
+        case CHANGE_GROUPMODAL_STATUS:
+            return {
+                ...state,
+                groupModalStatus: action.payload
             }
         default:
             return state;

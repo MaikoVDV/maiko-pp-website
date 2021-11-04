@@ -1,16 +1,18 @@
 import axios from 'axios'
 import { GET_GROUPS, GET_GROUPLIST, GET_GROUP_BY_ID, ADD_GROUP, DELETE_GROUP, GROUPS_LOADING } from "./types.js";
 
-export const getGroups = () => dispatch => {
+export const getGroups = (callback) => dispatch => {
     dispatch(setGroupsLoading());
     axios
         .get('/api/groups')
-        .then(res => 
+        .then(res => {
             dispatch({
                 type: GET_GROUPS,
                 payload: res.data
             })
-        )
+            if(callback !== undefined) callback()
+        })
+        
 }
 export const getGroupById = id => dispatch => {
     axios

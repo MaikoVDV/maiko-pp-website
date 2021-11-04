@@ -12,7 +12,11 @@ import './GroupList.css'
 
 class GroupList extends Component {
     componentDidMount() {
-        this.props.getGroups();
+        // Getting the group list, and opening the 1st group
+        const that = this;
+        this.props.getGroups(function() {
+            that.openGroup(that.props.group.groups[0])
+        })
     }
 
     openGroup(group) {

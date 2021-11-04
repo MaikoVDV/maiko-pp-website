@@ -6,6 +6,7 @@ const groupListItems = require('./routes/api/groupListItems');
 const groups = require('./routes/api/groups');
 const getGroupById = require('./routes/api/getGroupById');
 const cards = require('./routes/api/cards');
+const users = require('./routes/api/users');
 
 const config = require('config')
 
@@ -27,6 +28,7 @@ app.use('/api/groupListItems', groupListItems);
 app.use('/api/groups', groups);
 app.use('/api/getGroupById', getGroupById);
 app.use('/api/cards', cards);
+app.use('/api/users', users);
 
 // Serve static assets if in production
 if (process.env.NODE_ENV === 'production') {

@@ -1,13 +1,25 @@
 .titlebar {
-    font-size: calc(var(--titlebar-height) / 2);
+     /* font-size: calc(var(--titlebar-height) / 2);
     font-weight: var(--title-font-weight);
-    border-bottom: 2px solid black;
+    margin: 0px; */
     top: 0px;
-    margin: 0px;
+    border-bottom: 2px solid black;
     padding-left: calc(0.25em);
     height: var(--titlebar-height);
-    line-height: var(--titlebar-height);
-    box-sizing: border-box;
     z-index: 30;
+    box-sizing: border-box;
+    /* line-height: var(--titlebar-height);
+    font-family: 'Open Sans', sans-serif; */
+} 
+.titlebar p {
+    font-size: calc(var(--titlebar-height) / 2);
+    font-weight: var(--title-font-weight);
+    margin: 0px;
+    line-height: var(--titlebar-height);
     font-family: 'Open Sans', sans-serif;
+    display: inline;
+}
+.titlebar .g-sign-in-button {
+    display: inline;
+    float: right;
 }
