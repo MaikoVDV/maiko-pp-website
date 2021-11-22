@@ -12,6 +12,6 @@ class Overlay extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    overlayStatus: state.prefs.overlayStatus
+    overlayStatus: state.runtimeVars.overlayStatus
 })
 export default connect(mapStateToProps)(Overlay);

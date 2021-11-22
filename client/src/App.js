@@ -10,8 +10,11 @@ import GroupList from './components/Groups/GroupList';
 import GroupOptionsBar from './components/Cards/GroupOptionsBar';
 import AddGroupBar from './components/Groups/AddGroupBar';
 import CardModal from './components/Modals/Card Modal/CardModal';
-import GroupModal from './components/Modals/Group Modal/GroupModal';
+import CreateGroupModal from './components/Modals/Group Modal/CreateGroupModal';
+import JoinGroupModal from './components/Modals/Group Modal/JoinGroupModal';
 import Overlay from './components/Misc/Overlay';
+
+import TestComp from './components/testComp';
 
 function App() {
   return (
@@ -27,7 +30,7 @@ function App() {
           </div>
           <div id="group-menu" style={{position: "fixed", zIndex: 10}}>
             <div>
-              <Titlebar titleContent="My group" containsSignInButton={false}/> {/*CHANGE TO TRUE FOR G-SIGNIN*/}
+              <Titlebar titleContent="My group" containsSignInButton={true}/> {/*CHANGE TO TRUE FOR G-SIGNIN*/}
               <GroupOptionsBar />
               <div style={{width: "100%", height: "1rem", background: "linear-gradient(var(--drop-shadow-color), transparent)"}} />
             </div>
@@ -35,7 +38,9 @@ function App() {
           <GroupContentArea cards={store.getState().group.groups.cards}/>
         </div>
         <CardModal />
-        <GroupModal />
+        <CreateGroupModal />
+        <JoinGroupModal />
+        <TestComp />
       </Provider>
     </div>
   );

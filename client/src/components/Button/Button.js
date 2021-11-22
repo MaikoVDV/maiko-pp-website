@@ -4,9 +4,11 @@ import './Button.css'
 
 class Button extends Component {
     render() {
+        var uniqueStyle = {}
+        if(this.props.uniqueStyle !== undefined) this.uniqueStyle = this.props.uniqueStyle;
         return (
-            <button className={`default-button ${this.props.buttonType}`} onClick={this.props.buttonTrigger}>
-                <p>{this.props.buttonText}</p>
+            <button style={this.uniqueStyle} className={`default-button ${this.props.buttonType}`} onClick={this.props.buttonTrigger}>
+                <p style={{whiteSpace: "nowrap"}}>{this.props.buttonText}</p>
             </button>
         )
     }

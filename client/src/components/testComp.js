@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
+import store from '../store'
 
-import { getGroups, getGroupList } from '../actions/groupActions.js';
+import { joinGroup } from '../actions/userActions.js';
 
 class TestComp extends Component {
-    componentDidMount() {
-        this.props.getGroupList()
-    }
     testFunction(that) {
-        console.log(this.props.group);
+        //console.log(store.getState().users.currentJwt)
+        this.props.joinGroup(store.getState().user.currentJwt, "617d2eb15da2a883fceb81e8");
     }
 
     render() {
@@ -19,15 +17,8 @@ class TestComp extends Component {
     }
 }
 
-TestComp.propTypes = {
-    getGroups: PropTypes.func.isRequired,
-    getGroupList: PropTypes.func.isRequired,
-    group: PropTypes.object.isRequired
-}
-
-
 const mapStateToProps = (state) => ({
-    group: state.group
+    
 });
 
-export default connect(mapStateToProps, { getGroups, getGroupList })(TestComp);
+export default connect(mapStateToProps, { joinGroup })(TestComp);

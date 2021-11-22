@@ -57,8 +57,8 @@ CardModal.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-    overlayStatus: state.prefs.overlayStatus,
-    cardModalStatus: state.prefs.cardModalStatus,
+    overlayStatus: state.runtimeVars.overlayStatus,
+    cardModalStatus: state.runtimeVars.cardModalStatus,
     currentGroup: state.group.currentGroup
 });
 

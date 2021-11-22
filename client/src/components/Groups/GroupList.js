@@ -1,7 +1,6 @@
 // Libraries & frameworks
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import PropTypes from 'prop-types';
 // Components & Other scripts
 import Button from '../Button/Button';
 import { getGroups, getGroupById } from '../../actions/groupActions.js';
@@ -11,26 +10,19 @@ import './GroupList.css'
 
 
 class GroupList extends Component {
-    componentDidMount() {
-        // Getting the group list, and opening the 1st group
-        const that = this;
-        this.props.getGroups(function() {
-            that.openGroup(that.props.group.groups[0])
-        })
-    }
-
     openGroup(group) {
-        this.props.getGroupById(group._id)
-        this.props.getCards(group._id)
+        this.props.getGroupById(group.groupId)
+        this.props.getCards(group.groupId)
     }
 
     render() {
-        const { groups } = this.props.group;
+        let groups = [];
+        if(this.props.currentUser !== undefined) groups = this.props.groups;
 
         return(
             <div className="group-list">
                 {groups.map((group) => (
-                    <Button key={group._id} buttonType="list-item-v" buttonText={group.name} g={group} buttonTrigger={() => {
+                    <Button key={group.groupId} buttonType="list-item-v" buttonText={group.groupName} g={group} buttonTrigger={() => {
                         this.openGroup(group)
                     }} />
                 ))}
@@ -39,15 +31,9 @@ class GroupList extends Component {
     }
 }
 
-GroupList.propTypes = {
-    getGroups: PropTypes.func.isRequired,
-    group: PropTypes.object.isRequired
-}
-
 const mapStateToProps = (state) => ({
-    group: state.group,
-    getGroupById: state.getGroupById,
-    getCards: state.getCards
+    groups: state.user.groups,
+    currentUser: state.user
 });
 
 export default connect(mapStateToProps, { getGroups, getGroupById, getCards })(GroupList);

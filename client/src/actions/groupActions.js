@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { GET_GROUPS, GET_GROUPLIST, GET_GROUP_BY_ID, ADD_GROUP, DELETE_GROUP, GROUPS_LOADING } from "./types.js";
-import { getCards } from './cardActions';
+import { joinGroup } from './userActions';
 
 export const getGroups = (callback) => dispatch => {
     dispatch(setGroupsLoading());
@@ -37,15 +37,16 @@ export const getGroupList = () => dispatch => {
             })
         )
 }
-export const addGroup = group => dispatch => {
+export const addGroup = (jwt, group) => dispatch => {
     axios
         .post('/api/groups', group)
-        .then(res => 
+        .then(res => {
+            dispatch(joinGroup(jwt, res.data._id))
             dispatch({
                 type: ADD_GROUP,
                 payload: res.data
             })
-        )
+        })
 }
 export const deleteGroup = id => dispatch => {
     axios
@@ -60,9 +61,3 @@ export const setGroupsLoading = () => {
         type: GROUPS_LOADING
     }
 }
-/*export const changeCurrentGroup = id => {
-    return {
-        type: CHANGE_CURRENT_GROUP,
-        payload: id
-    }
-}*/
