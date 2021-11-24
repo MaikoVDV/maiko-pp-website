@@ -1,7 +1,6 @@
 // Libraries
 import { connect } from 'react-redux';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 // Components & other scripts
 import Button from '../../Button/Button';
 import { changeOverlayStatus, changeCreateGroupModalStatus } from '../../../actions/prefActions';

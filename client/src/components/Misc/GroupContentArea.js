@@ -4,6 +4,7 @@ import { addCard } from '../../actions/cardActions';
 import { connect } from 'react-redux';
 
 import CardList from '../Cards/CardList';
+import GroupInfoPanel from '../Modals/Group Modal/GroupInfoPanel';
 import '../../App.css';
 
 class GroupContentArea extends Component {
@@ -19,7 +20,12 @@ class GroupContentArea extends Component {
     render() {
         return(
             <div id="group-content-area">
-                <CardList cards={this.props.cards} />
+                <div style={{
+                    overflowY: "scroll", 
+                    position: "absolute", 
+                    bottom: "0px", top: "0px", left: "0px", right: "0px"
+                }}><CardList cards={this.props.cards} /></div>
+                <div style={{position: "absolute", top: "0px", bottom: "0px", right: "0px", left: "0px", background: "white"}} ><GroupInfoPanel /> </div>
             </div>
         )
     }
@@ -32,7 +38,8 @@ GroupContentArea.propTypes = {
 
 const mapStateToProps = (state) => ({
     currentGroup: state.group.currentGroup,
-    card: state.card
+    card: state.card,
+    groupInfoStatus: state.runtimeVars.groupInfoModalStatus
 });
 
 export default connect(mapStateToProps, { addCard })(GroupContentArea);

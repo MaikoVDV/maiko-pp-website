@@ -2,6 +2,6 @@
     width: 100%;
     height: var(--group-optionsbar-height);
     background: white;
-    display: flex;
+    /* display: flex; */
     z-index: 10;
 }

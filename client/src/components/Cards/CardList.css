@@ -2,8 +2,8 @@
     display: flex;
     flex-wrap: wrap;
     /* height: 500px; */
-    overflow: auto;
     top: 0px;
     bottom: 0px;
     z-index: 5;
+    position: relative;
 }

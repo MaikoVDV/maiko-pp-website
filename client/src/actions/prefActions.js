@@ -1,4 +1,10 @@
-import { CHANGE_OVERLAY_STATUS, CHANGE_CARDMODAL_STATUS, CHANGE_CREATE_GROUPMODAL_STATUS, CHANGE_JOIN_GROUPMODAL_STATUS } from "./types";
+import { 
+    CHANGE_OVERLAY_STATUS,
+    CHANGE_CARDMODAL_STATUS,
+    CHANGE_CREATE_GROUPMODAL_STATUS,
+    CHANGE_JOIN_GROUPMODAL_STATUS,
+    CHANGE_GROUPINFO_MODAL_STATUS
+} from "./types";
 
 export const changeOverlayStatus = (newState) => {
     return {
@@ -21,6 +27,12 @@ export const changeCreateGroupModalStatus = (newState) => {
 export const changeJoinGroupModalStatus = (newState) => {
     return {
         type: CHANGE_JOIN_GROUPMODAL_STATUS,
+        payload: newState
+    }
+}
+export const changeGroupInfoModalStatus = (newState) => {
+    return {
+        type: CHANGE_GROUPINFO_MODAL_STATUS,
         payload: newState
     }
 }

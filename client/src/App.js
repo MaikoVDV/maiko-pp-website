@@ -40,7 +40,7 @@ function App() {
         <CardModal />
         <CreateGroupModal />
         <JoinGroupModal />
-        <TestComp />
+        {/* <TestComp /> */}
       </Provider>
     </div>
   );

@@ -1,0 +1,48 @@
+#group-info-panel {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    bottom: 0px;
+    width: 20rem;
+    left: unset;
+    transform: translate(0px, 0px);
+    display: block;
+}
+#group-info-panel .modal-title {
+    position: relative;
+    top: 0px;
+    margin: 0px;
+}
+#group-info-panel .modal-content {
+    margin: 0.1rem 0px;
+}
+.listed-user {
+    height: var(--pfp-size-small);
+    display: grid;
+    grid-template-columns: var(--pfp-size-small);
+    align-items: start;
+    margin-bottom: 0.5rem;
+}
+.listed-user .pfp {
+    position: relative;
+    width: var(--pfp-size-small);
+    height: var(--pfp-size-small);
+    border-radius: 50%;
+    transform: translateY(-50%);
+    top: 50%;
+
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column: 1;
+}
+
+.listed-user .modal-content {
+    margin: 0px !important;
+    margin-left: 1rem !important;
+    position: relative;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0px;
+    grid-column: 2;
+    line-height: 1rem;
+}

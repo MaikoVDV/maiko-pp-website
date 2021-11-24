@@ -27,6 +27,11 @@ export default function(state = initState, action) {
                 ...state,
                 groups: action.payload
             }
+        case LEAVE_GROUP:
+            return {
+                ...state,
+                groups: action.payload
+            }
         default:
             return state;
     }

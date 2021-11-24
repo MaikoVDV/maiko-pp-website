@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { ADD_JWT, LOGIN_USER, JOIN_GROUP, LEAVE_GROUP } from "./types";
+import { getGroupById } from "./groupActions";
+import { getCards } from "./cardActions";
 
 export const addJwt = jwtToken => dispatch => {
     dispatch({
@@ -31,5 +33,22 @@ export const joinGroup = (jwtToken, groupId) => dispatch => {
         })
         .catch(err => {
             console.error("An error occured whilst attempting to join a group:\n\n" + err + "\n\n" + err.response.statusText)
+        })
+}
+export const leaveGroup = (jwtToken, groupId) => dispatch => {
+    axios
+        .post('/api/users/leaveGroup', {jwt: jwtToken, groupId: groupId})
+        .then(res => {
+            dispatch({
+                type: LEAVE_GROUP,
+                payload: res.data
+            })
+            //console.log(res.data)
+            dispatch(getGroupById(res.data[0].groupId))
+            dispatch(getCards(res.data[0].groupId))
+        })
+        .catch(err => {
+            if(err.response == undefined) err.response = ""
+            console.error("An error occured whilst attempting to leave a group:\n\n" + err + "\n\n" + err.response.statusText)
         })
 }

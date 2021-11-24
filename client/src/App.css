@@ -21,7 +21,7 @@
     left: var(--group-list-width);
 }
 #group-content-area {
-    position: fixed;
+    position: absolute;
     left: var(--group-list-width);
     top: calc(var(--titlebar-height) + var(--group-optionsbar-height));
     bottom: 0px;
@@ -29,7 +29,4 @@
     width: calc(100% - var(--group-list-width));
     display: flex;
     align-items: flex-start;
-    overflow-y: scroll;
-
-    z-index: 5;
 }

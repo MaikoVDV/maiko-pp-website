@@ -55,11 +55,6 @@ export default function(state = initState, action) {
                 ...state,
                 loading: true
             }
-        // case CHANGE_CURRENT_GROUP:
-        //     return {
-        //         ...state,
-        //         currentGroup: action.payload
-        //     }
         default:
             return state;
     }

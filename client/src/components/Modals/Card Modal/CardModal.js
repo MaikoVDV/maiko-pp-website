@@ -16,6 +16,8 @@ class CardModal extends Component {
             cardTitle: "",
             cardDesc: ""
         }
+        this.titleField = React.createRef()
+        this.descField = React.createRef()
     }
     ToggleModal = () => {
         this.props.changeCardModalStatus(false);
@@ -27,6 +29,9 @@ class CardModal extends Component {
           title: this.state.cardTitle,
           desc: this.state.cardDesc
         }
+
+        this.titleField.current.value = ""
+        this.descField.current.value = ""
     
         this.props.addCard(newCard, this.props.currentGroup._id);
         this.props.changeOverlayStatus(false)
@@ -38,8 +43,8 @@ class CardModal extends Component {
     render() {
         return(
             <div className="card-modal" style={{ visibility: this.props.cardModalStatus === false? 'hidden': 'visible'}}>
-                <input className="modal-title" onChange={this.UpdateTitle} type="text" placeholder="Add a title" />
-                <input className="modal-content" onChange={this.UpdateDesc} type="text" placeholder="Add some details"/>
+                <input ref={this.titleField} className="modal-title" onChange={this.UpdateTitle} type="text" placeholder="Add a title" />
+                <input ref={this.descField} className="modal-content" onChange={this.UpdateDesc} type="text" placeholder="Add some details"/>
                 <div className="modal-buttons" style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
                     <Button buttonType="modal-button" buttonText="Add card" buttonTrigger={this.SendCard}/>
                     {/* <Button buttonType="modal-button" buttonText="Modal status" buttonTrigger={this.ToggleModal}/> */}
