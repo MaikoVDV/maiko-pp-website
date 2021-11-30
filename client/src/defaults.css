@@ -26,6 +26,8 @@
     --button-highlight-neutral: #ececec;
     --button-border-confirm: #4444ff;
     --button-highlight-confirm: #83a4ff;
+    --button-border-danger: #a4100b;
+    --button-highlight-danger: #d71914;
 
     --drop-shadow-color: #aaaaaacc;
 
@@ -35,6 +37,8 @@
 
     --border-width-button: 2px;
     --border-radius-button: 8px;
+    
+    --card-hover-shadow-width: 5px;
 }
 * {
     font-family: 'Lexend', sans-serif;

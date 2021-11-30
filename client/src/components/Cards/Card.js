@@ -2,29 +2,28 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
 // Components & other scripts
-import { deleteCard } from '../../actions/cardActions'
+import { changeExpandedCardModalStatus, changeOverlayStatus } from '../../actions/prefActions';
 // Stylesheets
 import './Card.css';
 
 class Card extends Component {
-    removeCard = (cardId, groupId) => {
-        this.props.deleteCard(cardId, groupId)
+    openCard = () => {
+        this.props.changeExpandedCardModalStatus(true, this.props.cardData)
+        this.props.changeOverlayStatus(true)
     }
 
     render() {
         return (
-            <div className="card">
+            <div className="card" onClick={this.openCard}>
                 <p className="card-title">{this.props.cardData.title}</p>
                 <p className="card-desc">{this.props.cardData.desc}</p>
-                <button onClick={this.removeCard.bind(this, this.props.cardData._id, this.props.groupId)}></button>
             </div>
         )
     }
 }
 
 const mapStateToProps = (state) => ({
-    currentGroup: state.group.currentGroup,
-    deleteCard: state.deleteCard
+    currentGroup: state.group.currentGroup
 });
 
-export default connect(mapStateToProps, { deleteCard })(Card);
+export default connect(mapStateToProps, { changeExpandedCardModalStatus, changeOverlayStatus })(Card);

@@ -3,7 +3,8 @@ import {
     CHANGE_CARDMODAL_STATUS,
     CHANGE_CREATE_GROUPMODAL_STATUS,
     CHANGE_JOIN_GROUPMODAL_STATUS,
-    CHANGE_GROUPINFO_MODAL_STATUS
+    CHANGE_GROUPINFO_MODAL_STATUS,
+    CHANGE_EXPANDED_CARDMODAL_STATUS
 } from "./types";
 
 export const changeOverlayStatus = (newState) => {
@@ -34,5 +35,12 @@ export const changeGroupInfoModalStatus = (newState) => {
     return {
         type: CHANGE_GROUPINFO_MODAL_STATUS,
         payload: newState
+    }
+}
+export const changeExpandedCardModalStatus = (newState, cardData) => {
+    return {
+        type: CHANGE_EXPANDED_CARDMODAL_STATUS,
+        changedState: newState,
+        data: cardData
     }
 }

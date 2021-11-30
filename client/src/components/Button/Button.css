@@ -11,20 +11,27 @@
 
 }
 @keyframes neutral-highlight {
-    from {background-color: transparent;}
-    to {background-color: var(--button-highlight-neutral);}
+    from {background-color: transparent; }
+    to {background-color: var(--button-highlight-neutral); }
 }
 @keyframes neutral-highlight-rev {
-    from {background-color: var(--button-highlight-neutral);;}
-    to {background-color: transparent}
+    from {background-color: var(--button-highlight-neutral); }
+    to {background-color: transparent; }
 }
 @keyframes confirm-highlight {
-    from {background-color: transparent;}
-    to {background-color: var(--button-highlight-confirm);}
+    from {background-color: transparent; }
+    to {background-color: var(--button-highlight-confirm); }
 }
 @keyframes confirm-highlight-rev {
-    from {background-color: var(--button-highlight-confirm);;}
-    to {background-color: transparent}
+    from {background-color: var(--button-highlight-confirm); }
+    to {background-color: transparent; }
+}@keyframes danger-highlight {
+    from {background-color: transparent; color: var(--button-border-danger); }
+    to {background-color: var(--button-highlight-danger); color: white; }
+}
+@keyframes danger-highlight-rev {
+    from {background-color: var(--button-highlight-danger); color: white; }
+    to {background-color: transparent; color: var(--button-border-danger); }
 }
 .default-button:hover { animation: neutral-highlight 0.1s forwards; }
 .default-button:hover { animation: neutral-highlight 0.1s forwards; }
@@ -32,6 +39,8 @@
 .default-button { animation: neutral-highlight-rev 0.1s forwards; }
 .default-button.confirm:hover { animation: confirm-highlight 0.1s forwards; }
 .default-button.confirm { animation: confirm-highlight-rev 0.1s forwards; }
+.default-button.danger:hover { animation: danger-highlight 0.1s forwards; }
+.default-button.danger { animation: danger-highlight-rev 0.1s forwards; }
 
 .default-button p {
     margin: 0px;
@@ -52,10 +61,9 @@
     height: calc(100% - var(--list-item-margin));
     margin: auto 1rem;
 }
-.default-button.modal-button {
-    bottom: 0px;
-    right: 0px;
-    position: absolute;
-
-    margin: 1em;
+.default-button.danger {
+    border-color: var(--button-border-danger)
+}
+.modal-buttons .default-button {
+    margin-left: 1rem;
 }

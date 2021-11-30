@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import React, { Component } from 'react';
 // Components & other scripts
 import Button from '../../Button/Button';
-import { changeOverlayStatus, changeGroupInfoModalStatus } from '../../../actions/prefActions';
+import { changeGroupInfoModalStatus } from '../../../actions/prefActions';
 import { leaveGroup } from '../../../actions/userActions';
 // Stylesheets
 import './GroupModal.css';
@@ -19,7 +19,7 @@ class GroupInfoPanel extends Component {
         this.groupTitleInput = React.createRef();
         this.groupDescInput = React.createRef();
     }
-    ClosePanel = e => { this.props.changeOverlayStatus(false); this.props.changeGroupInfoModalStatus(false); }
+    ClosePanel = e => { this.props.changeGroupInfoModalStatus(false); }
     LeaveGroup = e => {
         this.props.leaveGroup(this.props.currentJwt, this.props.currentGroup._id);
         this.ClosePanel();
@@ -64,11 +64,10 @@ class GroupInfoPanel extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    overlayStatus: state.runtimeVars.overlayStatus,
     groupModalStatus: state.runtimeVars.groupInfoModalStatus,
     currentGroup: state.group.currentGroup,
     currentJwt: state.user.currentJwt,
     groupDate: new Date(state.group.currentGroup.date)
 });
 
-export default connect(mapStateToProps, { changeOverlayStatus, changeGroupInfoModalStatus, leaveGroup })(GroupInfoPanel);
+export default connect(mapStateToProps, { changeGroupInfoModalStatus, leaveGroup })(GroupInfoPanel);

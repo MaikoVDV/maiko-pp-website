@@ -8,6 +8,8 @@
     height: 20vw; */
 
     background: white;
+    border-left: var(--border-width-button) solid var(--button-border-neutral);
+    border-radius: var(--border-radius-button) 0px  0px var(--border-radius-button);
 
     z-index: 60;
 

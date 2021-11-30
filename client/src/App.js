@@ -13,6 +13,7 @@ import CardModal from './components/Modals/Card Modal/CardModal';
 import CreateGroupModal from './components/Modals/Group Modal/CreateGroupModal';
 import JoinGroupModal from './components/Modals/Group Modal/JoinGroupModal';
 import Overlay from './components/Misc/Overlay';
+import ExpandedCardViewer from './components/Cards/Expanded card/ExpandedCard';
 
 import TestComp from './components/testComp';
 
@@ -40,6 +41,7 @@ function App() {
         <CardModal />
         <CreateGroupModal />
         <JoinGroupModal />
+        <ExpandedCardViewer />
         {/* <TestComp /> */}
       </Provider>
     </div>

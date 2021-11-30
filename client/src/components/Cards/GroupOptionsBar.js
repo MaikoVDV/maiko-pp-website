@@ -14,7 +14,6 @@ class GroupOptionsBar extends Component {
         this.props.changeCardModalStatus(true)
     }
     OpenInfo = () => {
-        this.props.changeOverlayStatus(true)
         this.props.changeGroupInfoModalStatus(true)
     }
 
