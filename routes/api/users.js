@@ -11,13 +11,16 @@ const Group = require("../../models/group");
 // @desc   Register new user
 // @access Public
 router.post("/login", async (req, res) => {
+    process.stdout.write("Made a POST request to login.")
+    process.stdout.write("Origin: " + JSON.stringify(req.origin));
+    process.stdout.write("Host: " + JSON.stringify(req.hostname));
+    process.stdout.write("Referer: " + JSON.stringify(req.referer));
     const decoded = jwt.decode(req.body.jwt)
-    if(decoded === null) return res.status(400).json({msg: "JWT is invalid. Registering failed."})
-    //res.json(decoded)
+    if (decoded === null) return res.status(400).json({ msg: "JWT is invalid. Registering failed." })
     const userId = decoded.sub
     // Checking if the user already exists
-    User.findOne({gId: userId}).then(user => {
-        if(user !== null) {
+    User.findOne({ gId: userId }).then(user => {
+        if (user !== null) {
             return res.json(user)
         }
         const newUser = new User({
@@ -33,15 +36,15 @@ router.post("/login", async (req, res) => {
 })
 router.post("/joinGroup", async (req, res) => {
     const decoded = jwt.decode(req.body.jwt)
-    if(decoded === null) return res.status(400).json({msg: "JWT is invalid. Joining failed."})
+    if (decoded === null) return res.status(400).json({ msg: "JWT is invalid. Joining failed." })
     //res.json(decoded)
     const userId = decoded.sub
     // Checking if the user already exists
-    User.findOne({gId: userId}).then(user => {
-        if(user === null) {
-            return res.status(400).json({msg: "User was not found. Joining group failed."})
+    User.findOne({ gId: userId }).then(user => {
+        if (user === null) {
+            return res.status(400).json({ msg: "User was not found. Joining group failed." })
         }
-        Group.findOne({_id: req.body.groupId}).then(group => {
+        Group.findOne({ _id: req.body.groupId }).then(group => {
             const newGroup = {
                 groupId: group._id,
                 groupName: group.name
@@ -61,10 +64,10 @@ router.post("/joinGroup", async (req, res) => {
             //     res.statusMessage = "User is already in this group."
             //     return res.status(400).end();
             // }
-            let isDuplicate = user.groups.some(function(listItem) {
+            let isDuplicate = user.groups.some(function (listItem) {
                 return listItem.groupId == newGroup.groupId;
             })
-            if(isDuplicate) {
+            if (isDuplicate) {
                 res.statusMessage = "The user is already in this group.";
                 return res.status(400).end();
             }
@@ -78,15 +81,15 @@ router.post("/joinGroup", async (req, res) => {
 })
 router.post("/leaveGroup", async (req, res) => {
     const decoded = jwt.decode(req.body.jwt)
-    if(decoded === null) return res.status(400).json({msg: "JWT is invalid. Leaving failed."})
+    if (decoded === null) return res.status(400).json({ msg: "JWT is invalid. Leaving failed." })
     //res.json(decoded)
     const userId = decoded.sub
     // Checking if the user already exists
-    User.findOne({gId: userId}).then(user => {
-        if(user === null) {
-            return res.status(400).json({msg: "User was not found. Leaving group failed."})
+    User.findOne({ gId: userId }).then(user => {
+        if (user === null) {
+            return res.status(400).json({ msg: "User was not found. Leaving group failed." })
         }
-        Group.findOne({_id: req.body.groupId}).then(group => {
+        Group.findOne({ _id: req.body.groupId }).then(group => {
             const userId = user._id
             const joinedUserObj = group.users.find(user => {
                 return user.userId == userId
@@ -107,8 +110,8 @@ router.post("/leaveGroup", async (req, res) => {
 })
 router.get("/", (req, res) => {
     // req = { jwtId }
-    User.findOne({ jwtId: req.body.jwtId}, user => {
-         res.json(user)
+    User.findOne({ jwtId: req.body.jwtId }, user => {
+        res.json(user)
     })
 })
 
