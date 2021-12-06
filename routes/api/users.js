@@ -11,10 +11,15 @@ const Group = require("../../models/group");
 // @desc   Register new user
 // @access Public
 router.post("/login", async (req, res) => {
-    process.stdout.write("Made a POST request to login.")
-    process.stdout.write("Origin: " + JSON.stringify(req.origin));
-    process.stdout.write("Host: " + JSON.stringify(req.hostname));
-    process.stdout.write("Referer: " + JSON.stringify(req.referer));
+    process.stdout.write("Made a POST request to login.\n")
+    process.stdout.write("Origin: " + JSON.stringify(req.headers.origin));
+    process.stdout.write("Host: " + JSON.stringify(req.headers.host));
+    process.stdout.write("Referer: " + JSON.stringify(req.headers.referer));
+    console.log("Origin: " + JSON.stringify(req.headers.origin));
+    console.log("Host: " + JSON.stringify(req.headers.host));
+    console.log("Referer: " + JSON.stringify(req.headers.referer));
+    //res.json(req.headers)
+    //process.stdout.write(JSON.stringify(req))
     const decoded = jwt.decode(req.body.jwt)
     if (decoded === null) return res.status(400).json({ msg: "JWT is invalid. Registering failed." })
     const userId = decoded.sub
