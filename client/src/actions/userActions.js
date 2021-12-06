@@ -11,7 +11,7 @@ export const addJwt = jwtToken => dispatch => {
 }
 export const loginUser = jwtToken => dispatch => {
     axios
-        .post('/api/users/login', {jwt: jwtToken})
+        .post('/api/users/login', { jwt: jwtToken }, { headers: { "Mode": "cors" } })
         .then(res => {
             dispatch({
                 type: LOGIN_USER,
@@ -24,7 +24,7 @@ export const loginUser = jwtToken => dispatch => {
 }
 export const joinGroup = (jwtToken, groupId) => dispatch => {
     axios
-        .post('/api/users/joinGroup', {jwt: jwtToken, groupId: groupId})
+        .post('/api/users/joinGroup', { jwt: jwtToken, groupId: groupId })
         .then(res => {
             dispatch({
                 type: JOIN_GROUP,
@@ -37,7 +37,7 @@ export const joinGroup = (jwtToken, groupId) => dispatch => {
 }
 export const leaveGroup = (jwtToken, groupId) => dispatch => {
     axios
-        .post('/api/users/leaveGroup', {jwt: jwtToken, groupId: groupId})
+        .post('/api/users/leaveGroup', { jwt: jwtToken, groupId: groupId })
         .then(res => {
             dispatch({
                 type: LEAVE_GROUP,
@@ -48,7 +48,7 @@ export const leaveGroup = (jwtToken, groupId) => dispatch => {
             dispatch(getCards(res.data[0].groupId))
         })
         .catch(err => {
-            if(err.response == undefined) err.response = ""
+            if (err.response == undefined) err.response = ""
             console.error("An error occured whilst attempting to leave a group:\n\n" + err + "\n\n" + err.response.statusText)
         })
 }
