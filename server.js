@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cors = require('cors');
 
 const groupListItems = require('./routes/api/groupListItems');
 const groups = require('./routes/api/groups');
@@ -14,6 +15,8 @@ const app = express();
 
 // Bodyparser middleware
 app.use(express.json());
+// CORS middleware to allow requests from other domains
+app.use(cors());
 
 // Database config
 const db = config.get('mongoURI');
@@ -34,9 +37,9 @@ app.use('/api/users', users);
 if (process.env.NODE_ENV === 'production') {
     // Set static folder
     app.use(express.static('./client/build'));
-  
+
     app.get('*', (req, res) => {
-      res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
     });
 }
 const port = process.env.PORT || 5000; //process.env.PORT || 5000
