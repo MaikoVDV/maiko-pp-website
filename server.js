@@ -16,7 +16,10 @@ const app = express();
 // Bodyparser middleware
 app.use(express.json());
 // CORS middleware to allow requests from other domains
-app.use(cors());
+const corsConfig = {
+    methods: ["GET", "POST", "DELETE", "PUT"]
+}
+app.use(cors(corsConfig));
 
 // Database config
 const db = config.get('mongoURI');
@@ -45,4 +48,5 @@ if (process.env.NODE_ENV === 'production') {
 const port = process.env.PORT || 5000; //process.env.PORT || 5000
 app.listen(port, () => {
     console.log("Server started on port " + port)
+    console.log(cors.config)
 })

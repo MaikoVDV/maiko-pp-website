@@ -12,15 +12,12 @@ import './CardList.css'
 
 class CardList extends Component {
     render() {
-        let cards = [];
-        if(this.props.currentGroup._id !== undefined) {
-            cards = this.props.cards
-        }
+        let cards = this.props.cards;
 
         return (
             <div id="card-list">
                 {cards.map((card) => (
-                    <Card key={card._id} cardData={card} groupId={this.props.currentGroup._id} />
+                    <Card key={card._id} cardData={card} />
                 ))}
             </div>
         )
