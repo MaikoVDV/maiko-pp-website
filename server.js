@@ -17,6 +17,7 @@ const app = express();
 app.use(express.json());
 // CORS middleware to allow requests from other domains
 const corsConfig = {
+    origin: true,
     methods: ["GET", "POST", "DELETE", "PUT"]
 }
 app.use(cors(corsConfig));
