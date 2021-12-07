@@ -13,7 +13,7 @@ router.get("/", (req, res) => {
     Group.findById(req.query.groupId)
         .then(group => {
             const cardIds = group.cardIds;
-            Card.find({_id: { $in: cardIds }}).then(cards => {
+            Card.find({ _id: { $in: cardIds } }).then(cards => {
                 res.json(cards)
             })
         });
@@ -54,6 +54,10 @@ router.delete("/", (req, res) => {
     Card.findByIdAndDelete(req.body.cardId, (err, card) => {
         // err = An error message, if any
         // card = The card that has been deleted from the cards collection
+        if (err !== undefined) {
+            res.send({ msg: "An error has occurred. Here's the message:\n" + err })
+        }
+        res.send({ msg: "Sucess!" })
     })
 })
 
