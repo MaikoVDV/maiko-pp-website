@@ -10,8 +10,14 @@ export const addJwt = jwtToken => dispatch => {
     })
 }
 export const loginUser = jwtToken => dispatch => {
+    axios.defaults.baseURL = "https://maiko-pp-website.herokuapp.com"
+    console.log(axios.defaults.withCredentials);
+    axios.defaults.withCredentials = false;
+    console.log(axios.defaults.withCredentials);
+    console.log(axios.defaults)
+
     axios
-        .post('/api/users/login', { jwt: jwtToken }, { headers: { "Mode": "cors" } })
+        .post('/api/users/login', { jwt: jwtToken }, { withCredentials: false }, { headers: { "Mode": "cors", "credentials": "omit", "Credentials": "omit" } })
         .then(res => {
             dispatch({
                 type: LOGIN_USER,
