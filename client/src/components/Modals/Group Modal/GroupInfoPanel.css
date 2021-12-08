@@ -7,6 +7,9 @@
     left: unset;
     transform: translate(0px, 0px);
     display: block;
+    
+    border-left: var(--border-width-button) solid var(--button-border-neutral);
+    border-radius: var(--border-radius-button) 0px  0px var(--border-radius-button);
 }
 #group-info-panel .modal-title {
     position: relative;

@@ -2,6 +2,9 @@ import axios from 'axios'
 import { GET_CARDS, ADD_CARD, DELETE_CARD, CARDS_LOADING, CHANGE_CURRENT_GROUP } from "./types.js";
 
 export const getCards = groupId => dispatch => {
+    dispatch({
+        type: CARDS_LOADING
+    })
     axios
         .get('/api/cards', { params: { groupId: groupId } })
         .then(res =>

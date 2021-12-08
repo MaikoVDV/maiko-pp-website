@@ -19,6 +19,7 @@
 .card-modal input {
     /* margin: 0px; */
     flex: 100%;
+    width: 100%;
 }
 .card-modal .modal-title {
     font-size: var(--modal-title-size);

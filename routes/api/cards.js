@@ -54,9 +54,7 @@ router.delete("/", (req, res) => {
     Card.findByIdAndDelete(req.body.cardId, (err, card) => {
         // err = An error message, if any
         // card = The card that has been deleted from the cards collection
-        if (err !== undefined) {
-            res.send({ msg: "An error has occurred. Here's the message:\n" + err })
-        }
+        if (err !== null) res.json(err)
         res.send({ msg: "Sucess!" })
     })
 })

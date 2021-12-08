@@ -21,7 +21,6 @@
     margin: 0px;
 }
 
-
 .card:hover { animation: card-hover 0.3s forwards; }
 .card { animation: card-hover-rev 0.3s forwards; }
 

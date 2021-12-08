@@ -1,0 +1,10 @@
+.loading-indicator {
+    width: 10rem;
+    height: 10rem;
+
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+
+    position: absolute;
+}
