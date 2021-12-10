@@ -5,27 +5,29 @@ import { connect } from 'react-redux';
 
 import CardList from '../Cards/CardList';
 import GroupInfoPanel from '../Modals/Group Modal/GroupInfoPanel';
+import LoadingIndicator from './LoadingIndicator/CardLoadingIndicator';
 import '../../App.css';
 
 class GroupContentArea extends Component {
     AddCard = () => {
-      const newCard = {
-        title: "Frontend card",
-        desc: "I added this card with the frontend!"
-      }
-  
-      this.props.addCard(newCard, this.props.currentGroup._id);
+        const newCard = {
+            title: "Frontend card",
+            desc: "I added this card with the frontend!"
+        }
+
+        this.props.addCard(newCard, this.props.currentGroup._id);
     }
 
     render() {
-        return(
+        return (
             <div id="group-content-area">
+                <LoadingIndicator />
                 <div style={{
-                    overflowY: "scroll", 
-                    position: "absolute", 
+                    overflowY: "scroll",
+                    position: "absolute",
                     bottom: "0px", top: "0px", left: "0px", right: "0px"
                 }}><CardList cards={this.props.cards} /></div>
-                <div style={{position: "absolute", top: "0px", bottom: "0px", right: "0px", left: "0px", background: "white"}} ><GroupInfoPanel /> </div>
+                <div style={{ position: "absolute", top: "0px", bottom: "0px", right: "0px", left: "0px", background: "white" }} ><GroupInfoPanel /> </div>
             </div>
         )
     }

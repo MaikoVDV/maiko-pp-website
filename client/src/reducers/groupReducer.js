@@ -1,9 +1,9 @@
-import { 
-    GET_GROUPS, 
-    GET_GROUP_BY_ID, 
-    GET_GROUPLIST, 
-    ADD_GROUP, 
-    DELETE_GROUP, 
+import {
+    GET_GROUPS,
+    GET_GROUP_BY_ID,
+    GET_GROUPLIST,
+    ADD_GROUP,
+    DELETE_GROUP,
     GROUPS_LOADING
 } from "../actions/types.js";
 
@@ -19,15 +19,15 @@ const initState = {
     loading: false
 };
 
-export default function(state = initState, action) {
-    switch(action.type) {
+export default function (state = initState, action) {
+    switch (action.type) {
         case GET_GROUPS:
             return {
                 ...state,
                 groups: action.payload,
                 loading: false
             }
-            
+
         case GET_GROUP_BY_ID:
             return {
                 ...state,
@@ -53,7 +53,7 @@ export default function(state = initState, action) {
         case GROUPS_LOADING:
             return {
                 ...state,
-                loading: true
+                loading: action.payload
             }
         default:
             return state;

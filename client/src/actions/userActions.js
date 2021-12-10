@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ADD_JWT, LOGIN_USER, JOIN_GROUP, LEAVE_GROUP } from "./types";
+import { ADD_JWT, LOGIN_USER, JOIN_GROUP, LEAVE_GROUP, GROUPS_LOADING } from "./types";
 import { getGroupById } from "./groupActions";
 import { getCards } from "./cardActions";
 
@@ -11,8 +11,12 @@ export const addJwt = jwtToken => dispatch => {
 }
 export const loginUser = jwtToken => dispatch => {
     axios.defaults.baseURL = "https://maiko-pp-website.herokuapp.com"
-    console.log(axios.defaults.withCredentials);
+    //console.log(axios.defaults.withCredentials);
     axios.defaults.withCredentials = false;
+    dispatch({
+        type: GROUPS_LOADING,
+        payload: true
+    })
 
     axios
         .post('/api/users/login', { jwt: jwtToken }, { withCredentials: false }, { headers: { "Mode": "cors", "credentials": "omit", "Credentials": "omit" } })
@@ -20,6 +24,10 @@ export const loginUser = jwtToken => dispatch => {
             dispatch({
                 type: LOGIN_USER,
                 payload: res.data
+            })
+            dispatch({
+                type: GROUPS_LOADING,
+                payload: false
             })
         }
         ).catch(err => {

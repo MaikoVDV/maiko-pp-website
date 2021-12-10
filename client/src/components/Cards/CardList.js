@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 // Components & Other scripts
 import Card from './Card';
-import LoadingIndicator from '../Misc/LoadingIndicator/LoadingIndicator';
+import LoadingIndicator from '../Misc/LoadingIndicator/CardLoadingIndicator';
 import { getCards } from '../../actions/cardActions'
 
 // Stylesheets
@@ -17,7 +17,7 @@ class CardList extends Component {
 
         return (
             <div id="card-list">
-                <LoadingIndicator />
+                {/* <LoadingIndicator /> */}
                 {cards.map((card) => (
                     <Card key={card._id} cardData={card} />
                 ))}
