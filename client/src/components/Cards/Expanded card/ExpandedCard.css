@@ -26,6 +26,8 @@
 }
 .card-modal p {
     margin: 0px;
+    
+    white-space: pre-wrap;
 }
 .card-modal .modal-title {
     font-size: var(--modal-title-size);

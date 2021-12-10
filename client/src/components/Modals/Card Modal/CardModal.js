@@ -19,35 +19,34 @@ class CardModal extends Component {
         this.titleField = React.createRef()
         this.descField = React.createRef()
     }
-    ToggleModal = () => {
+    CloseModal = () => {
         this.props.changeCardModalStatus(false);
         this.props.changeOverlayStatus(false);
     }
-    
+
     SendCard = () => {
         const newCard = {
-          title: this.state.cardTitle,
-          desc: this.state.cardDesc
+            title: this.state.cardTitle,
+            desc: this.state.cardDesc
         }
 
         this.titleField.current.value = ""
         this.descField.current.value = ""
-    
+
         this.props.addCard(newCard, this.props.currentGroup._id);
-        this.props.changeOverlayStatus(false)
-        this.props.changeCardModalStatus(false)
-      }
-    UpdateTitle = e => { this.setState({cardTitle: e.target.value}) }
-    UpdateDesc = e => { this.setState({cardDesc: e.target.value}) }
+        this.CloseModal();
+    }
+    UpdateTitle = e => { this.setState({ cardTitle: e.target.value }) }
+    UpdateDesc = e => { this.setState({ cardDesc: e.target.value }) }
 
     render() {
-        return(
-            <div className="card-modal" style={{ visibility: this.props.cardModalStatus === false? 'hidden': 'visible'}}>
+        return (
+            <div className="card-modal" style={{ visibility: this.props.cardModalStatus === false ? 'hidden' : 'visible' }}>
                 <input ref={this.titleField} className="modal-title" onChange={this.UpdateTitle} type="text" placeholder="Add a title" />
-                <input ref={this.descField} className="modal-content" onChange={this.UpdateDesc} type="text" placeholder="Add some details"/>
-                <div className="modal-buttons" style={{display: "flex", justifyContent: "flex-end", width: "100%"}}>
-                    <Button buttonType="modal-button" buttonText="Add card" buttonTrigger={this.SendCard}/>
-                    {/* <Button buttonType="modal-button" buttonText="Modal status" buttonTrigger={this.ToggleModal}/> */}
+                <input ref={this.descField} className="modal-content" onChange={this.UpdateDesc} type="text" placeholder="Add some details" />
+                <div className="modal-buttons" style={{ display: "flex", justifyContent: "flex-end", width: "100%" }}>
+                    <Button buttonType="modal-button" buttonText="Cancel" buttonTrigger={this.CloseModal} />
+                    <Button buttonType="modal-button" buttonText="Add card" buttonTrigger={this.SendCard} />
                 </div>
             </div>
         )
